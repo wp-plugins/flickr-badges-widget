@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: Flickr, widget, badge, feed, photostream, javascript
 Requires at least: 3.0
 Tested up to: 3.3
-Stable tag: 1.0
+Stable tag: 1.1
 
 Display your Flickr latest photostream in widget area.
 
@@ -12,7 +12,8 @@ Display your Flickr latest photostream in widget area.
 
 This is a simple widget to display your Flickr latest photostream in widget area using javascript from <code>http://www.flickr.com/badge_code_v2.gne</code>. 
 Find your Flickr ID from (<a href="http://www.idgettr.com" target="_blank">idGettr</a> if you do not know your id. 
-Easy to customize, just put your Flickr id and your widget ready to lunch. 
+With its very beautiful widget interface, tabbed system, and powered by jQuery makes this plugin easier to customize. 
+just put your Flickr ID and your widget will be ready to lunch. 
 
 <h3>Installation</h3>
 You can use the built in installer and upgrader, or you can install the plugin manually.<br />

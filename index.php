@@ -2,8 +2,8 @@
  /*
 	Plugin Name: Flickr Badges Widget
 	Plugin URI: http://zourbuth.com/plugins/flickr-badges-widget
-	Description: Display your Flickr latest photostream in widget area.
-	Version: 1.0
+	Description: Display your Flickr latest photostream in widget area using javascript. Easy to customize, just put your Flickr id and your widget ready to lunch. 
+	Version: 1.1
 	Author: zourbuth
 	Author URI: http://zourbuth.com
 	License: Under GPL2
@@ -32,16 +32,15 @@ add_action( 'plugins_loaded', 'flickr_badges_widget_plugins_loaded' );
 /* Initializes the plugin and it's features. */
 function flickr_badges_widget_plugins_loaded() {
 
-	/* Set constant path to the members plugin directory. */
+	// Set constant path to the members plugin directory
+	define( 'FLICKR_BADGES_WIDGET_VERSION', '1.1' );
 	define( 'FLICKR_BADGES_WIDGET_DIR', plugin_dir_path( __FILE__ ) );
-
-	/* Set constant path to the members plugin directory. */
 	define( 'FLICKR_BADGES_WIDGET_URL', plugin_dir_url( __FILE__ ) );
 
-	/* Loads and registers the new widgets. */
+	// Loads and registers the new widgets
 	add_action( 'widgets_init', 'flickr_badges_widget_init' );
 	
-	/* Create additional links to plugin list */
+	// Create additional links to plugin list
 	add_filter( 'plugin_row_meta', '_fbw_my_portfolio', 10, 2 );
 }
 
@@ -52,7 +51,7 @@ function flickr_badges_widget_init() {
 	require_once( FLICKR_BADGES_WIDGET_DIR . 'flickr-badges-widget.php' );
 
 	/* Register widget. */
-	register_widget( 'flickr_badges_widget' );
+	register_widget( 'Flickr_Badges_Widget' );
 }
 
 function _fbw_my_portfolio($links, $file) {
