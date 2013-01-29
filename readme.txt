@@ -2,9 +2,9 @@
 Contributors: zourbuth
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W6D3WAJTVKAFC
 Tags: Flickr, widget, badge, feed, photostream, javascript
-Requires at least: 3.0
+Requires at least: 3.5
 Tested up to: 3.3
-Stable tag: 1.1
+Stable tag: 1.2
 
 Display your Flickr latest photostream in widget area.
 

@@ -51,7 +51,8 @@ class Flickr_Badges_Widget extends WP_Widget {
 			'type'			=> empty( $instance['type'] ) ? 'user' : $instance['type'],
 			'flickr_id'		=> $instance['flickr_id'],
 			'count'			=> (int)$instance['count'],
-			'display'		=> empty( $instance['display'] ) ? 'latest' : $instance['display']
+			'display'		=> empty( $instance['display'] ) ? 'latest' : $instance['display'],
+			'copyright'		=> !empty( $instance['copyright'] ) ? true : false
 		);
 		
 		extract( $cur_arg );
@@ -78,7 +79,10 @@ class Flickr_Badges_Widget extends WP_Widget {
 			echo '</div>';
 			
 			if (!empty( $instance['outro_text'] ) ) echo '<p>' . do_shortcode( $instance['outro_text'] ) . '</p>';
-
+			
+			if ( $copyright )
+				echo '<a href="http://zourbuth.com/archives/500/flickr-badge-widget/"><span style="font-size: 11px;"><span style="color: #0063DC; font-weight: bold;">Flick</span><span style="color: #FF0084; font-weight: bold;">r</span> Badge Widget</span></a>';
+			
 			// print the after widget
 			echo $after_widget;
 		}
@@ -91,6 +95,7 @@ class Flickr_Badges_Widget extends WP_Widget {
 		$instance['count'] 			= (int) $new_instance['count'];
 		$instance['display'] 		= strip_tags($new_instance['display']);
 		$instance['title']			= strip_tags($new_instance['title']);
+		$instance['copyright']		= ( isset( $new_instance['copyright'] ) ? 1 : 0 );
 		$instance['tab']			= $new_instance['tab'];
 		$instance['intro_text'] 	= $new_instance['intro_text'];
 		$instance['outro_text']		= $new_instance['outro_text'];
@@ -107,6 +112,7 @@ class Flickr_Badges_Widget extends WP_Widget {
 			'flickr_id'		=> '', // 71865026@N00
 			'count'			=> 9,
 			'display'		=> 'display',
+			'copyright'		=> true,
 			'tab'			=> array( 0 => true ),
 			'intro_text'	=> '',
 			'outro_text'	=> '',
@@ -153,7 +159,7 @@ class Flickr_Badges_Widget extends WP_Widget {
 			<ul class="nav nav-tabs">
 				<li class="<?php if ( $instance['tab'][0] ) : ?>active<?php endif; ?>">General<input type="hidden" name="<?php echo $this->get_field_name( 'tab' ); ?>[]" value="<?php echo esc_attr( $instance['tab'][0] ); ?>" /></li>
 				<li class="<?php if ( $instance['tab'][1] ) : ?>active<?php endif; ?>">Customs<input type="hidden" name="<?php echo $this->get_field_name( 'tab' ); ?>[]" value="<?php echo esc_attr( $instance['tab'][1] ); ?>" /></li>
-				<li class="<?php if ( $instance['tab'][2] ) : ?>active<?php endif; ?>">About<input type="hidden" name="<?php echo $this->get_field_name( 'tab' ); ?>[]" value="<?php echo esc_attr( $instance['tab'][2] ); ?>" /></li>
+				<li class="<?php if ( $instance['tab'][2] ) : ?>active<?php endif; ?>">Information<input type="hidden" name="<?php echo $this->get_field_name( 'tab' ); ?>[]" value="<?php echo esc_attr( $instance['tab'][2] ); ?>" /></li>
 			</ul>	
 			
 			<ul class="tab-content">
@@ -174,9 +180,9 @@ class Flickr_Badges_Widget extends WP_Widget {
 							</select>				
 						</li>
 						<li>
-							<label for="<?php echo $this->get_field_id('flickr_id'); ?>"><?php _e('Flickr ID', $this->textdomain); ?></label>
-							<span class="controlDesc"><?php _e( 'Put the flickr ID here, go to <a href="http://www.idgettr.com" target="_blank">idGettr</a> if you don\'t know your ID.', $this->textdomain ); ?></span>
+							<label for="<?php echo $this->get_field_id('flickr_id'); ?>"><?php _e('Flickr ID', $this->textdomain); ?></label>							
 							<input id="<?php echo $this->get_field_id('flickr_id'); ?>" name="<?php echo $this->get_field_name('flickr_id'); ?>" type="text" value="<?php echo esc_attr( $instance['flickr_id'] ); ?>" />
+							<span class="controlDesc"><?php _e( 'Put the flickr ID here, go to <a href="http://www.idgettr.com" target="_blank">idGettr</a> if you don\'t know your ID. Example: 71865026@N00', $this->textdomain ); ?></span>
 						</li>
 						<li>
 							<label for="<?php echo $this->get_field_id('count'); ?>"><?php _e('Number', $this->textdomain); ?></label>
@@ -192,6 +198,11 @@ class Flickr_Badges_Widget extends WP_Widget {
 								<?php } ?>
 							</select>	
 						</li>
+						<li>
+							<label for="<?php echo $this->get_field_id( 'copyright' ); ?>">
+							<input class="checkbox" type="checkbox" <?php checked( $instance['copyright'], true ); ?> id="<?php echo $this->get_field_id( 'copyright' ); ?>" name="<?php echo $this->get_field_name( 'copyright' ); ?>" /><?php _e( 'Show Copyright', $this->textdomain ); ?></label>
+							<span class="controlDesc"><?php _e( 'Display the plugin name with link in the front end.', $this->textdomain ); ?></span>
+						</li>							
 					</ul>
 				</li>
 
@@ -217,10 +228,16 @@ class Flickr_Badges_Widget extends WP_Widget {
 				</li>
 				<li class="tab-pane <?php if ( $instance['tab'][2] ) : ?>active<?php endif; ?>">
 					<ul>
+						<li>
+							<h3><?php _e( 'Zourbuth Feeds', $this->textdomain ) ; ?></h3>
+							<?php 
+								wp_widget_rss_output( 'http://zourbuth.com/feed/', array( 'items' => 8 ) );
+							?>
+						</li>
 						<li>	
 							<a href="http://feedburner.google.com/fb/a/mailverify?uri=zourbuth&amp;loc=en_US">Subscribe to zourbuth by Email</a><br />
-							<?php _e( 'Like my work? Please consider to ', $this->textdomain ); ?><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W6D3WAJTVKAFC" title="Donate"><?php _e( 'donate', $this->textdomain ); ?></a>.<br /><br />
-							<span style="color: #0063DC; font-weight: bold;">Flick</span><span style="color: #FF0084; font-weight: bold;">r</span> Badge Widget &copy; Copyright <a href="http://zourbuth.com">zourbuth</a> <?php echo date("Y"); ?>.
+							<?php _e( 'Like my work? Please consider to ', $this->textdomain ); ?><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W6D3WAJTVKAFC" title="Donate"><?php _e( 'donate', $this->textdomain ); ?></a>.<br />
+							<span style="font-size: 11px;"><span style="color: #0063DC; font-weight: bold;">Flick</span><span style="color: #FF0084; font-weight: bold;">r</span> Badge Widget &copy; Copyright <a href="http://zourbuth.com">Zourbuth</a> <?php echo date("Y"); ?></span>.
 						</li>
 					</ul>
 				</li>
