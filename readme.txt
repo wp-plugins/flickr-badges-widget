@@ -1,17 +1,17 @@
 === Flickr Badges Widget ===
 Contributors: zourbuth
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W6D3WAJTVKAFC
-Tags: Flickr, widget, badge, feed, photostream, javascript
+Tags: flickr, widget, badge, feed, photostream, javascript, sidebar, gallery, photo
 Requires at least: 3.5
-Tested up to: 3.3
-Stable tag: 1.2
+Tested up to: 3.0
+Stable tag: 1.2.1
 
-Display your Flickr latest photostream in widget area.
+Display your Flickr latest photostream in a sidebar widget area.
 
 == Description ==
 
 This is a simple widget to display your Flickr latest photostream in widget area using javascript from <code>http://www.flickr.com/badge_code_v2.gne</code>. 
-Find your Flickr ID from (<a href="http://www.idgettr.com" target="_blank">idGettr</a> if you do not know your id. 
+Find your Flickr ID from (<a href="http://goo.gl/PM6rZ" target="_blank">Flickr NSID Lookup</a> if you do not know your flickr id. 
 With its very beautiful widget interface, tabbed system, and powered by jQuery makes this plugin easier to customize. 
 just put your Flickr ID and your widget will be ready to lunch. 
 
@@ -19,6 +19,9 @@ just put your Flickr ID and your widget will be ready to lunch.
 You can use the built in installer and upgrader, or you can install the plugin manually.<br />
 1. Go to the menu 'Plugins' -> 'Install' and search for 'Flickr Badges Widget'.<br />
 2. Click 'install'.
+
+<h3>Plugin Homepage</h3>
+http://zourbuth.com/archives/500/flickr-badges-widget-free-wordpress-plugin/
 
 == Installation ==
 
@@ -28,9 +31,11 @@ You can use the built in installer and upgrader, or you can install the plugin m
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= Features Request & Support =
+http://zourbuth.com/archives/500/flickr-badges-widget-free-wordpress-plugin/
 
-Please read the FAQ under http://zourbuth.com/plugins/flickr-badges-widget
+= Flickr NSID Lookup =
+http://goo.gl/PM6rZ
 
 
 == Screenshots ==
@@ -39,6 +44,15 @@ Please read the FAQ under http://zourbuth.com/plugins/flickr-badges-widget
 2. Widget in frontend
 
 == Changelog ==
+
+= 1.2.1 =
+* Updating Flickr NSID lookup
+
+= 1.2 =
+* Updating to WP 3.5.1
+
+= 1.1 =
+* Updating to WP 3.5
 
 = 1.0 =
 * Released

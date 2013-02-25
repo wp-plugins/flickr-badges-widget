@@ -81,7 +81,7 @@ class Flickr_Badges_Widget extends WP_Widget {
 			if (!empty( $instance['outro_text'] ) ) echo '<p>' . do_shortcode( $instance['outro_text'] ) . '</p>';
 			
 			if ( $copyright )
-				echo '<a href="http://zourbuth.com/archives/500/flickr-badge-widget/"><span style="font-size: 11px;"><span style="color: #0063DC; font-weight: bold;">Flick</span><span style="color: #FF0084; font-weight: bold;">r</span> Badge Widget</span></a>';
+				echo '<a href="http://zourbuth.com/archives/500/flickr-badges-widget-free-wordpress-plugin/"><span style="font-size: 11px;"><span style="color: #0063DC; font-weight: bold;">Flick</span><span style="color: #FF0084; font-weight: bold;">r</span> Badge Widget</span></a>';
 			
 			// print the after widget
 			echo $after_widget;
@@ -182,7 +182,7 @@ class Flickr_Badges_Widget extends WP_Widget {
 						<li>
 							<label for="<?php echo $this->get_field_id('flickr_id'); ?>"><?php _e('Flickr ID', $this->textdomain); ?></label>							
 							<input id="<?php echo $this->get_field_id('flickr_id'); ?>" name="<?php echo $this->get_field_name('flickr_id'); ?>" type="text" value="<?php echo esc_attr( $instance['flickr_id'] ); ?>" />
-							<span class="controlDesc"><?php _e( 'Put the flickr ID here, go to <a href="http://www.idgettr.com" target="_blank">idGettr</a> if you don\'t know your ID. Example: 71865026@N00', $this->textdomain ); ?></span>
+							<span class="controlDesc"><?php _e( 'Put the flickr ID here, go to <a href="http://goo.gl/PM6rZ" target="_blank">Flickr NSID Lookup</a> if you don\'t know your ID. Example: 71865026@N00', $this->textdomain ); ?></span>
 						</li>
 						<li>
 							<label for="<?php echo $this->get_field_id('count'); ?>"><?php _e('Number', $this->textdomain); ?></label>
