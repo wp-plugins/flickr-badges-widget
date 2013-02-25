@@ -11,17 +11,18 @@ Display your Flickr latest photostream in a sidebar widget area.
 == Description ==
 
 This is a simple widget to display your Flickr latest photostream in widget area using javascript from <code>http://www.flickr.com/badge_code_v2.gne</code>. 
-Find your Flickr ID from (<a href="http://goo.gl/PM6rZ" target="_blank">Flickr NSID Lookup</a> if you do not know your flickr id. 
+Find your Flickr ID from <a href="http://goo.gl/PM6rZ"><strong>Flickr NSID Lookup</strong></a> if you do not know your flickr id. 
 With its very beautiful widget interface, tabbed system, and powered by jQuery makes this plugin easier to customize. 
-just put your Flickr ID and your widget will be ready to lunch. 
+Just put your Flickr ID and your widget will be ready to lunch. 
 
 <h3>Installation</h3>
 You can use the built in installer and upgrader, or you can install the plugin manually.<br />
 1. Go to the menu 'Plugins' -> 'Install' and search for 'Flickr Badges Widget'.<br />
 2. Click 'install'.
 
-<h3>Plugin Homepage</h3>
-http://zourbuth.com/archives/500/flickr-badges-widget-free-wordpress-plugin/
+<h3>Usefull Links</h3>
+<a href="http://zourbuth.com/archives/500/flickr-badges-widget-free-wordpress-plugin/">Plugin homepage</a>
+<a href="http://goo.gl/PM6rZ">Flickr NSID Lookup</a>
 
 == Installation ==
 
