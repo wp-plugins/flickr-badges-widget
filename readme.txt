@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: flickr, widget, badge, feed, photostream, javascript, sidebar, gallery, photo, photography
 Requires at least: 3.5
 Tested up to: 3.0
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 
 Display your Flickr latest photostream in a sidebar widget area.
 
