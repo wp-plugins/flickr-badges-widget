@@ -46,6 +46,10 @@ http://goo.gl/PM6rZ
 
 == Changelog ==
 
+= 1.2.2 =
+* Widget admin interface fixed
+* Widget width reduced
+
 = 1.2.1 =
 * Updating Flickr NSID lookup
 

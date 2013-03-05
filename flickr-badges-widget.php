@@ -16,7 +16,7 @@ class Flickr_Badges_Widget extends WP_Widget {
 		
 		/* Set up the widget control options. */
 		$control_options = array(
-			'width' => 525,
+			'width' => 500,
 			'height' => 350,
 			'id_base' => "zflickr"
 		);
@@ -31,8 +31,21 @@ class Flickr_Badges_Widget extends WP_Widget {
 		if ( is_active_widget(false, false, $this->id_base, true) && !is_admin() ) {
 			/* load the widget stylesheet for the widgets screen. */
 			wp_enqueue_style( 'z-flickr', FLICKR_BADGES_WIDGET_URL . 'css/widget.css', false, 0.7, 'screen' );
+			add_action( 'wp_head', array( &$this, 'print_script' ) );
 		}
 	}
+	
+	/**
+	 * Push all script and style from the widget "Custom Style & Script" box.
+	 * @since 1.2.1
+	**/	
+	function print_script() {
+		$settings = $this->get_settings();
+		foreach ( $settings as $key => $setting ){		
+			if ( !empty( $setting['custom'] ) ) 
+				echo $setting['custom'];
+		}
+	}	
 	
 
 	/* Push the widget stylesheet widget.css into widget admin page */
@@ -229,15 +242,18 @@ class Flickr_Badges_Widget extends WP_Widget {
 				<li class="tab-pane <?php if ( $instance['tab'][2] ) : ?>active<?php endif; ?>">
 					<ul>
 						<li>
-							<h3><?php _e( 'Zourbuth Feeds', $this->textdomain ) ; ?></h3>
+							<h3><?php _e( 'Zourbuth Blog Feeds', $this->textdomain ) ; ?></h3>
 							<?php 
 								wp_widget_rss_output( 'http://zourbuth.com/feed/', array( 'items' => 8 ) );
 							?>
 						</li>
 						<li>	
 							<a href="http://feedburner.google.com/fb/a/mailverify?uri=zourbuth&amp;loc=en_US">Subscribe to zourbuth by Email</a><br />
-							<?php _e( 'Like my work? Please consider to ', $this->textdomain ); ?><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W6D3WAJTVKAFC" title="Donate"><?php _e( 'donate', $this->textdomain ); ?></a>.<br />
-							<span style="font-size: 11px;"><span style="color: #0063DC; font-weight: bold;">Flick</span><span style="color: #FF0084; font-weight: bold;">r</span> Badge Widget &copy; Copyright <a href="http://zourbuth.com">Zourbuth</a> <?php echo date("Y"); ?></span>.
+							<?php _e( 'Like my work? Please consider to ', $this->textdomain ); ?><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W6D3WAJTVKAFC" title="Donate"><?php _e( 'donate', $this->textdomain ); ?></a>.<br /><br />
+							
+							If you like this plugin, please <a href="http://wordpress.org/support/view/plugin-reviews/flickr-badges-widget">give a good rating</a>.<br /><br />
+							
+							<span style="font-size: 11px;"><a href="http://wordpress.org/extend/plugins/flickr-badges-widget/"><span style="color: #0063DC; font-weight: bold;">Flick</span><span style="color: #FF0084; font-weight: bold;">r</span> Badge Widget</a> &copy; Copyright <a href="http://zourbuth.com">Zourbuth</a> <?php echo date("Y"); ?></span>.
 						</li>
 					</ul>
 				</li>
