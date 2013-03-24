@@ -1,10 +1,10 @@
 === Flickr Badges Widget ===
 Contributors: zourbuth
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W6D3WAJTVKAFC
-Tags: flickr, widget, badge, feed, photostream, javascript, sidebar, gallery, photo, photography
+Tags: flickr, widget, badge, feed, photostream, javascript, sidebar, gallery, photo, photo gallery, photography, sidebar, user, group, image, images, recent, random
 Requires at least: 3.5
 Tested up to: 3.0
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 
 Display your Flickr latest photostream in a sidebar widget area.
 
@@ -15,14 +15,26 @@ Find your Flickr ID from <a href="http://goo.gl/PM6rZ"><strong>Flickr NSID Looku
 With its very beautiful widget interface, tabbed system, and powered by jQuery makes this plugin easier to customize. 
 Just put your Flickr ID and your widget will be ready to lunch.
 
-<h3>Installation</h3>
-You can use the built in installer and upgrader, or you can install the plugin manually.<br />
-1. Go to the menu 'Plugins' -> 'Install' and search for 'Flickr Badges Widget'.<br />
-2. Click 'install'.
+<h3><strong>Key Features & Options</strong></h3>
+<ul>
+<li>Beautiful widget interface</li>
+<li>The type of images from user or group.</li>
+<li>Flickr NSID support.</li>
+<li>Get the image from recent or use random function.</li>
+<li>Intro text for additional text before the widget content.</li>
+<li>Outro text for additional text after the widget content.</li>
+<li>Custom scripts and stylesheets for each widget</li>
+</ul>
 
-<h3>Usefull Links</h3>
-<a href="http://zourbuth.com/archives/500/flickr-badges-widget-free-wordpress-plugin/">Plugin homepage</a><br />
+<h3><strong>Usefull Links</strong></h3>
+<a href="http://zourbuth.com/?p=500">Flickr Badges Widget - Free WordPress Plugin</a><br />
 <a href="http://goo.gl/PM6rZ">Flickr NSID Lookup</a>
+
+<h3><strong>Question & Supports</strong></h3>
+This plugin does not match to your site style? Is this script not quite working as it should? 
+Having trouble installing? Or need some custom modifications that aren’t already included? 
+Or you want more features on next release? Please leave messages or comments here:<br />
+http://zourbuth.com/archives/500/flickr-badges-widget-free-wordpress-plugin/
 
 == Installation ==
 
@@ -46,6 +58,9 @@ http://goo.gl/PM6rZ
 
 == Changelog ==
 
+= 1.2.3 =
+* Widget prefix and localization added
+
 = 1.2.2 =
 * Widget admin interface fixed
 * Widget width reduced
@@ -63,6 +78,4 @@ http://goo.gl/PM6rZ
 * Released
 
 == Upgrade Notice ==
-
-= 1.0 =
 Just upgrade via Wordpress.

@@ -13,18 +13,20 @@ class Flickr_Badges_Widget extends WP_Widget {
 	
 	/** Set up the widget's unique name, ID, class, description, and other options. **/
 	function __construct() {
+		$this->prefix = 'zflickr';	
+		$this->textdomain = 'flickr-badges-widget';	
 		
 		/* Set up the widget control options. */
 		$control_options = array(
 			'width' => 500,
 			'height' => 350,
-			'id_base' => "zflickr"
+			'id_base' => $this->prefix
 		);
 		/** Add some informations to the widget **/
 		$widget_options = array('classname' => 'widget_flickr', 'description' => __( '[+] Displays a Flickr photo stream from an ID', $this->textdomain ) );
 		
 		/* Create the widget. */
-		$this->WP_Widget('zflickr', __('Flickr Badge', $this->textdomain), $widget_options, $control_options );
+		$this->WP_Widget($this->prefix, __('Flickr Badge', $this->textdomain), $widget_options, $control_options );
 		
 		add_action( 'load-widgets.php', array(&$this, 'widget_admin') );
 		
@@ -234,7 +236,7 @@ class Flickr_Badges_Widget extends WP_Widget {
 						</li>				
 						<li>
 							<label for="<?php echo $this->get_field_id('custom'); ?>"><?php _e( 'Custom Script & Stylesheet', $this->textdomain ) ; ?></label>
-							<span class="controlDesc"><?php _e( 'Use this box for additional widget CSS style of custom javascript. Current widget selector: ', $this->textdomain ); ?><?php echo '<code>#' . $this->id . '</code>'; ?></span>
+							<span class="controlDesc"><?php _e( 'Use this box for additional widget CSS style of custom javascript. Current widget selector: ', $this->textdomain ); ?><?php echo '<tt>#' . $this->id . '</tt>'; ?></span>
 							<textarea name="<?php echo $this->get_field_name( 'custom' ); ?>" id="<?php echo $this->get_field_id( 'custom' ); ?>" rows="5" class="widefat code"><?php echo htmlentities($instance['custom']); ?></textarea>
 						</li>
 					</ul>
