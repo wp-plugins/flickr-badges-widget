@@ -8,6 +8,7 @@
 **/
  
 class Flickr_Badges_Widget extends WP_Widget {
+	
 	var $prefix; 
 	var $textdomain;
 	
@@ -49,18 +50,22 @@ class Flickr_Badges_Widget extends WP_Widget {
 		}
 	}	
 	
-
-	/* Push the widget stylesheet widget.css into widget admin page */
+	
+	/**
+	 * Push the widget stylesheet widget.css into widget admin page
+	 * @since 1.2.1
+	**/		
 	function widget_admin() {
 		wp_enqueue_style( 'z-flickr-admin', FLICKR_BADGES_WIDGET_URL . 'css/dialog.css' );
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'z-flickr-admin', FLICKR_BADGES_WIDGET_URL . 'js/jquery.dialog.js' );
-	}	
+	}
+	
 	
 	function widget( $args, $instance ) {
 		extract( $args );
 
-		/* Set up the arguments for wp_list_categories(). */
+		// Set up the arguments for wp_list_categories().
 		$cur_arg = array(
 			'title'			=> $instance['title'],
 			'type'			=> empty( $instance['type'] ) ? 'user' : $instance['type'],
@@ -72,10 +77,10 @@ class Flickr_Badges_Widget extends WP_Widget {
 		
 		extract( $cur_arg );
 
-		// if the photo is < 1, set it to 1
+		// If the photo is < 1, set it to 1
 		if ( $count < 1 ) $count = 1;
 		
-		/** if the widget have an ID, we can continue **/
+		// If the widget have an ID, we can continue
 		if ( !empty( $instance['flickr_id'] ) ) {
 		
 			// print the before widget
@@ -83,26 +88,30 @@ class Flickr_Badges_Widget extends WP_Widget {
 			
 			if ( $title ) echo $before_title . $title . $after_title;
 		
-			/// get the user direction, rtl or ltr
-			if ( function_exists( 'is_rtl' ) ) $dir= is_rtl() ? 'rtl' : 'ltr';
+			// Get the user direction, rtl or ltr
+			if ( function_exists( 'is_rtl' ) )
+				$dir = is_rtl() ? 'rtl' : 'ltr';
 
-			// wrap the widget
-			if (!empty( $instance['intro_text'] ) ) echo '<p>' . do_shortcode( $instance['intro_text'] ) . '</p>';
+			// Wrap the widget
+			if (!empty( $instance['intro_text'] ) )
+				echo '<p>' . do_shortcode( $instance['intro_text'] ) . '</p>';
 			
 			echo "<div class='zframe-flickr-wrap-$dir'>";
 				echo "<script type='text/javascript' src='http://www.flickr.com/badge_code_v2.gne?count=$count&amp;display=$display&amp;size=s&amp;layout=x&amp;source=$type&amp;$type=$flickr_id'></script>";
 			echo '</div>';
 			
-			if (!empty( $instance['outro_text'] ) ) echo '<p>' . do_shortcode( $instance['outro_text'] ) . '</p>';
+			if ( ! empty( $instance['outro_text'] ) )
+				echo '<p>' . do_shortcode( $instance['outro_text'] ) . '</p>';
 			
 			if ( $copyright )
 				echo '<a href="http://zourbuth.com/archives/500/flickr-badges-widget-free-wordpress-plugin/"><span style="font-size: 11px;"><span style="color: #0063DC; font-weight: bold;">Flick</span><span style="color: #FF0084; font-weight: bold;">r</span> Badge Widget</span></a>';
 			
-			// print the after widget
+			// Print the after widget
 			echo $after_widget;
 		}
 	}
 
+	
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['type'] 			= strip_tags($new_instance['type']);
@@ -119,8 +128,9 @@ class Flickr_Badges_Widget extends WP_Widget {
 		return $instance;
 	}
 
+	
 	function form( $instance ) {
-		/* Set up the default form values. */
+		// Set up the default form values.
 		$defaults = array(
 			'title'			=> esc_attr__( 'Flickr Widget', $this->textdomain ),
 			'type'			=> 'user',

@@ -1,11 +1,11 @@
-.zframe-flickr-wrap-ltr, .zframe-flickr-wrap-rtl {
+.zframe-flickr-wrap-ltr,
+.zframe-flickr-wrap-rtl {
 	display: block;
 	overflow: hidden;
 }
-.zframe-flickr-wrap-ltr img, .zframe-flickr-wrap-rtl img {
-    border: 1px solid #C9C9C9;
+.zframe-flickr-wrap-ltr img,
+.zframe-flickr-wrap-rtl img {
     margin-bottom: 10px;
-    padding: 1px;
 }
 
 .zframe-flickr-wrap-ltr img {
