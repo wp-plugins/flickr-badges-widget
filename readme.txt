@@ -2,9 +2,9 @@
 Contributors: zourbuth
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W6D3WAJTVKAFC
 Tags: flickr, widget, badge, feed, photostream, javascript, sidebar, gallery, photo, photo gallery, photography, sidebar, user, group, image, images, recent, random
-Requires at least: 3.5
+Requires at least: 3.6
 Tested up to: 3.0
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 
 Display your Flickr latest photostream in a sidebar widget area.
 
@@ -58,7 +58,8 @@ http://goo.gl/PM6rZ
 
 == Changelog ==
 
-= 1.2.4 =
+= 1.2.5 =
+* Image size added
 
 = 1.2.3 =
 * Widget prefix and localization added
