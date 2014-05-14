@@ -21,15 +21,19 @@ Just put your Flickr ID and your widget will be ready to lunch.
 <li>The type of images from user or group.</li>
 <li>Flickr NSID support.</li>
 <li>Get the image from recent or use random function.</li>
-<li>Optional image sizes</li>
+<li>Displays up to 10 images.</li>
+<li>Optional image sizes.</li>
 <li>Intro text for additional text before the widget content.</li>
 <li>Outro text for additional text after the widget content.</li>
-<li>Custom scripts and stylesheets for each widget</li>
+<li>Custom scripts and stylesheets for each widget.</li>
+<li>Free supports.</li>
 </ul>
 
 <h3><strong>Usefull Links</strong></h3>
 <a href="http://www.ground6.com/wordpress-plugins/flickr-badges-widget/">Flickr Badges Widget Homepage</a><br />
+<a href="http://www.ground6.com/wordpress-plugins/flickr-badges-widget/customizations/">Flickr Badges Widget Customizations</a><br />
 <a href="http://goo.gl/PM6rZ">Flickr NSID Lookup</a>
+<a href="http://www.flickr.com/badge_code_v2.gne">Flickr Badge Generator</a>
 
 <h3><strong>Question & Supports</strong></h3>
 This plugin does not match to your site style? Is this script not quite working as it should? 
@@ -45,6 +49,9 @@ You can use the built in installer and upgrader, or you can install the plugin m
 
 == Frequently Asked Questions ==
 
+= Customizations =
+http://www.ground6.com/wordpress-plugins/flickr-badges-widget/customizations/
+
 = Features Request & Support =
 http://www.ground6.com/wordpress-plugins/flickr-badges-widget/
 
@@ -53,9 +60,7 @@ http://goo.gl/PM6rZ
 
 
 == Screenshots ==
-More screenshots at http://www.ground6.com/wordpress-plugins/flickr-badges-widget/screenshots/
-1. Widget Settings
-2. Widget in frontend
+http://www.ground6.com/wordpress-plugins/flickr-badges-widget/screenshots/
 
 == Changelog ==
 
