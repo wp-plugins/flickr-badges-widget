@@ -32,7 +32,7 @@ Just put your Flickr ID and your widget will be ready to lunch.
 <h3><strong>Usefull Links</strong></h3>
 <a href="http://www.ground6.com/wordpress-plugins/flickr-badges-widget/">Flickr Badges Widget Homepage</a><br />
 <a href="http://www.ground6.com/wordpress-plugins/flickr-badges-widget/customizations/">Flickr Badges Widget Customizations</a><br />
-<a href="http://goo.gl/PM6rZ">Flickr NSID Lookup</a>
+<a href="http://goo.gl/PM6rZ">Flickr NSID Lookup</a><br />
 <a href="http://www.flickr.com/badge_code_v2.gne">Flickr Badge Generator</a>
 
 <h3><strong>Question & Supports</strong></h3>
