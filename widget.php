@@ -39,7 +39,6 @@ class Flickr_Badges_Widget extends WP_Widget {
 		
 		// Load additional scripts and styles file to the widget admin area
 		add_action( 'load-widgets.php', array(&$this, 'widget_admin') );
-		add_action('wp_ajax_fes_load_utility', array(&$this, 'fes_load_utility') );
 		
 		// Load the widget stylesheet for the widgets screen.
 		if ( is_active_widget(false, false, $this->id_base, true) && !is_admin() ) {			
@@ -69,11 +68,7 @@ class Flickr_Badges_Widget extends WP_Widget {
 	function widget_admin() {
 		wp_enqueue_style( 'z-flickr-admin', FLICKR_BADGES_WIDGET_URL . 'css/dialog.css' );
 		wp_enqueue_script( 'jquery' );
-		wp_enqueue_script( 'z-flickr-admin', FLICKR_BADGES_WIDGET_URL . 'js/jquery.dialog.js' );
-		wp_localize_script( 'z-flickr-admin', 'fes', array(
-			'nonce'		=> wp_create_nonce( 'fes-nonce' ),  // generate a nonce for further checking below
-			'action'	=> 'fes_load_utility'
-		));		
+		wp_enqueue_script( 'z-flickr-admin', FLICKR_BADGES_WIDGET_URL . 'js/jquery.dialog.js' );	
 	}
 	
 	
@@ -85,28 +80,23 @@ class Flickr_Badges_Widget extends WP_Widget {
 	 */
 	function fes_load_utility() {
 		// Check the nonce and if not isset the id, just die.
-		$nonce = $_POST['nonce'];
-		if ( ! wp_verify_nonce( $nonce, 'fes-nonce' ) )
-			die();
+		//$nonce = $_POST['nonce'];
+		//if ( ! wp_verify_nonce( $nonce, 'fes-nonce' ) )
+		//	die();
 
-		$ch = curl_init('http://marketplace.envato.com/api/edge/new-files-from-user:zourbuth,codecanyon.json');
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		$data = curl_exec($ch);
-		curl_close($ch);
-		$data = json_decode($data);
+		if ( false === ( $res = get_transient( '_premium_plugins' ) ) ) {
 		
-		$i = 0; $html = '';
-		if( $data ) {
-			$i = 0;
-			foreach( $data->{'new-files-from-user'} as $key => $value ) {
-				if( $i < 15 ) {
-					$html .= '<a href="'.$value->url.'?ref=zourbuth"><img src="'.$value->thumbnail.'"></a>&nbsp;';
-					$i++;
-				}
-			}
+			$request = wp_remote_get( "http://marketplace.envato.com/api/edge/collection:4204349.json" );
+
+			if ( ! is_wp_error( $request ) )
+				$res = json_decode( wp_remote_retrieve_body( $request ) );
+				
+			set_transient( '_premium_plugins', $res, 60*60*24*7 ); // cache for a week
 		}
-		echo $html;
-		exit;
+		
+		if( isset( $res->collection ) )			
+			foreach( $res->collection as $item )
+				echo "<a href='{$item->url}?ref=zourbuth'><img src='{$item->thumbnail}'></a>&nbsp;";
 	}
 
 	
@@ -144,7 +134,7 @@ class Flickr_Badges_Widget extends WP_Widget {
 		if ( ! empty( $instance['intro_text'] ) )
 			echo '<p>' . do_shortcode( $instance['intro_text'] ) . '</p>';
 
-		echo "<div class='zframe-flickr-wrap-$dir'>";
+		echo "<div class='flickr-badge-wrapper zframe-flickr-wrap-$dir'>";
 	
 		// If the widget have an ID, we can continue
 		if ( ! empty( $instance['flickr_id'] ) )
@@ -342,8 +332,8 @@ class Flickr_Badges_Widget extends WP_Widget {
 				<li class="tab-pane <?php if ( $instance['tab'][2] ) : ?>active<?php endif; ?>">
 					<ul>
 						<li>
-							<h3><?php _e( 'Zourbuth Blog Feeds', $this->textdomain ) ; ?></h3>
-							<?php wp_widget_rss_output( 'http://zourbuth.com/feed/', array( 'items' => 10 ) ); ?>
+							<h4><?php _e( 'Zourbuth Blog Feeds', $this->textdomain ) ; ?></h4>
+							<?php wp_widget_rss_output( 'http://www.codecheese.com/category/wordpress/feed/', array( 'items' => 10 ) ); ?>
 						</li>
 					</ul>
 				</li>
@@ -351,9 +341,11 @@ class Flickr_Badges_Widget extends WP_Widget {
 					<ul>
 						<li>
 							<p><strong>Our Premium Plugins</strong></p>
-							<div class="fesem"></div>
+							<p><?php $this->fes_load_utility(); ?></p>
 						</li>
 						<li>	
+							<a href="http://www.ground6.com/wordpress-plugins/flickr-badges-widget/"><b>Have a questions? Please feel free to contact supports section</b></a><br /><br />
+							
 							<a href="http://feedburner.google.com/fb/a/mailverify?uri=zourbuth&amp;loc=en_US">Subscribe to zourbuth by Email</a><br />
 							<?php _e( 'Like my work? Please consider to ', $this->textdomain ); ?><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W6D3WAJTVKAFC" title="Donate"><?php _e( 'donate', $this->textdomain ); ?></a>.<br /><br />
 							
@@ -365,24 +357,7 @@ class Flickr_Badges_Widget extends WP_Widget {
 				</li>
 
 			</ul>
-		</div>
-		<script type='text/javascript'>
-			jQuery(document).ready(function($){
-				$(document).on("click", ".fes-3", function(){
-					var c, t;
-					t = $(this);
-					c = t.parents(".totalControls").find(".fesem");
-					
-					if ( c.is(':empty')) {
-						c.append("<span class='fes-loading total-loading'>Loading item...</span>");
-						$.post( ajaxurl, { action: fes.action, nonce : fes.nonce }, function(data){
-							$(".fes-loading").remove();
-							c.append(data);			
-						});
-					}
-				});	
-			});
-		</script>			
+		</div>			
 		<?php
 	}
 }

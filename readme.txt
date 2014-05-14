@@ -1,12 +1,12 @@
 === Flickr Badges Widget ===
 Contributors: zourbuth
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=W6D3WAJTVKAFC
-Tags: flickr, widget, badge, feed, photostream, javascript, sidebar, gallery, photo, photo gallery, photography, sidebar, user, group, image, images, recent, random
-Requires at least: 3.6
+Tags: flickr, widget, badge, feed, photostream, javascript, sidebar, gallery, photo, photo gallery, photography, sidebar, user, group, image, images, recent, random, picture, image-widget
+Requires at least: 3.9
 Tested up to: 3.0
-Stable tag: 1.2.5
+Stable tag: 1.2.6
 
-Display your Flickr latest photostream in a sidebar widget area.
+A fast plugin toisplay your Flickr photostream in a sidebar easily without authentication.
 
 == Description ==
 
@@ -21,20 +21,21 @@ Just put your Flickr ID and your widget will be ready to lunch.
 <li>The type of images from user or group.</li>
 <li>Flickr NSID support.</li>
 <li>Get the image from recent or use random function.</li>
+<li>Optional image sizes</li>
 <li>Intro text for additional text before the widget content.</li>
 <li>Outro text for additional text after the widget content.</li>
 <li>Custom scripts and stylesheets for each widget</li>
 </ul>
 
 <h3><strong>Usefull Links</strong></h3>
-<a href="http://zourbuth.com/?p=500">Flickr Badges Widget - Free WordPress Plugin</a><br />
+<a href="http://www.ground6.com/wordpress-plugins/flickr-badges-widget/">Flickr Badges Widget Homepage</a><br />
 <a href="http://goo.gl/PM6rZ">Flickr NSID Lookup</a>
 
 <h3><strong>Question & Supports</strong></h3>
 This plugin does not match to your site style? Is this script not quite working as it should? 
 Having trouble installing? Or need some custom modifications that aren’t already included? 
 Or you want more features on next release? Please leave messages or comments here:<br />
-http://zourbuth.com/archives/500/flickr-badges-widget-free-wordpress-plugin/
+http://www.ground6.com/wordpress-plugins/flickr-badges-widget/supports/
 
 == Installation ==
 
@@ -45,18 +46,22 @@ You can use the built in installer and upgrader, or you can install the plugin m
 == Frequently Asked Questions ==
 
 = Features Request & Support =
-http://zourbuth.com/archives/500/flickr-badges-widget-free-wordpress-plugin/
+http://www.ground6.com/wordpress-plugins/flickr-badges-widget/
 
 = Flickr NSID Lookup =
 http://goo.gl/PM6rZ
 
 
 == Screenshots ==
-
+More screenshots at http://www.ground6.com/wordpress-plugins/flickr-badges-widget/screenshots/
 1. Widget Settings
 2. Widget in frontend
 
 == Changelog ==
+
+= 1.2.6 =
+* Fixed widget transparent background
+* Updated to WordPress 3.9 compliance
 
 = 1.2.5 =
 * Image size added

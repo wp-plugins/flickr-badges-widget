@@ -228,7 +228,7 @@
     text-shadow: 1px 1px #FFFFFF;
 }
 .widget .ntotalWidgetBg {
-    background: url("../img/background.png") no-repeat scroll left top transparent;
+    background: url("../img/background.png") no-repeat scroll left top #F7F7F7;
     border-top: 1px solid #E4E4E4;
     position: relative;
 }
