@@ -136,9 +136,11 @@ class Flickr_Badges_Widget extends WP_Widget {
 
 		echo "<div class='flickr-badge-wrapper zframe-flickr-wrap-$dir'>";
 	
+		$protocol = is_ssl() ? 'https' : 'http';
+		
 		// If the widget have an ID, we can continue
 		if ( ! empty( $instance['flickr_id'] ) )
-			echo "<script type='text/javascript' src='http://www.flickr.com/badge_code_v2.gne?count=$count&amp;display=$display&amp;size=$size&amp;layout=x&amp;source=$type&amp;$type=$flickr_id'></script>";
+			echo "<script type='text/javascript' src='$protocol://www.flickr.com/badge_code_v2.gne?count=$count&amp;display=$display&amp;size=$size&amp;layout=x&amp;source=$type&amp;$type=$flickr_id'></script>";
 		else
 			echo '<p>' . __('Please provide an Flickr ID', $this->textdomain) . '</p>';
 		

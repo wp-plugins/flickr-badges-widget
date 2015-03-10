@@ -3,7 +3,7 @@
 	Plugin Name: Flickr Badges Widget
 	Plugin URI: http://www.ground6.com/wordpress-plugins/flickr-badges-widget/
 	Description: Display your Flickr latest photostream in widget area using javascript. Easy to customize, just put your Flickr id and your widget ready to lunch. 
-	Version: 1.2.6
+	Version: 1.2.7
 	Author: zourbuth
 	Author URI: http://zourbuth.com
 	License: Under GPL2
@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) )
  * Set constant path to the members plugin directory
  * @since 1.0
  */
-define( 'FLICKR_BADGES_WIDGET_VERSION', '1.2.6' );
+define( 'FLICKR_BADGES_WIDGET_VERSION', '1.2.7' );
 define( 'FLICKR_BADGES_WIDGET_DIR', plugin_dir_path( __FILE__ ) );
 define( 'FLICKR_BADGES_WIDGET_URL', plugin_dir_url( __FILE__ ) );
 
