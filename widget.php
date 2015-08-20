@@ -35,7 +35,7 @@ class Flickr_Badges_Widget extends WP_Widget {
 		$widget_options = array('classname' => 'widget_flickr', 'description' => __( '[+] Displays a Flickr photo stream from an ID', $this->textdomain ) );
 		
 		// Create the widget
-		$this->WP_Widget($this->prefix, __('Flickr Badge', $this->textdomain), $widget_options, $control_options );
+		parent::__construct( $this->prefix, __('Flickr Badge', $this->textdomain), $widget_options, $control_options );
 		
 		// Load additional scripts and styles file to the widget admin area
 		add_action( 'load-widgets.php', array(&$this, 'widget_admin') );
@@ -151,7 +151,7 @@ class Flickr_Badges_Widget extends WP_Widget {
 		
 		if ( $copyright )
 			echo '<a href="http://zourbuth.com/archives/500/flickr-badges-widget-free-wordpress-plugin/">
-				<span style="font-size: 11px;"><span style="color: #0063DC; font-weight: bold;">Flick</span><span style="color: #FF0084; font-weight: bold;">r</span> Badge Widget</span>
+				<span style="font-size: 11px;"><span style="color: #0063DC; font-weight: bold;">Flick</span><span style="color: #FF0084; font-weight: bold;">r</span> Badges Widget</span>
 				</a>';
 		
 		// Print the after widget
